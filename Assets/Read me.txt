@@ -1,0 +1,58 @@
+****************** READ ME ********************
+
+******************** Instructions ********************
+
+Start Button:
+The game can be played in autoplay mode, where matched candies automatically cleared and in case there are no matches in the board, user can swipe the candies manually to make a match
+
+Reset Button:
+Used to reset the game, and game will begin again. Press stat button to autoplay again.
+
+NOTE: I considered term candy instead of gems!
+
+******************** Algorithm ********************
+
+The algorithm of the game will be Non-deterministic, as the output always random after giving the input.
+
+Input:
+Here we scan the all candies in nested for loop in 2d array(which used to hold candies)
+
+Output: 
+Matches will be found at random location each time
+
+Main steps of algorithm are:
+1) Filling the board (bottom to top, left to right)
+2) Scanning the board
+3) Checking for matches
+4) Clearing matches
+5) Compress the board to fill empty tiles by collapsing columns
+6) Re-filling the board
+
+Here, step-1 will be excuted once iniatilly and then step - 2 to 6 will be executed repeatedly
+So in auto-play, step 2-6 will be executed until user reset the board in our context.
+
+Main logic algorithm reside into matching part.
+To identify matching candies at particular position (x, y), 
+We first check whether the the tile (x, y) is inside the board or not
+then we check Left side of tile (x, y), keep comparing the property of candy (property can be sprite/color/tag etc..)
+we keep checking until we hit to edge of the board or we hit to candy with different color
+
+We do this same check for right, top & bottom side of tile (x, y)
+
+After checking in all 4 direction, we have to reject duplicate candies in list. after omitting duplicates, we get
+unique identified matches into list.
+
+Then we can clear the matched candies, empty the tiles of matched candies.
+Then we collapse the columns (falling of candies above of empty tiles)
+Then refill the board by scanning empty tiles across the board
+
+I hope this explaination enough to understand this algoritm
+
+(NOTE: For more details, read summary of each method inside script)
+
+
+
+
+
+
+
